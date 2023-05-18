@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Ejercicio 1
+    //Crear un programa que determine si un numero introducido en un Prompt es par o no,
+    //la respuesta será mostrada en una alerta.
+
+    let numero = prompt("Ingrese un número:");
+    numero = parseInt(numero);
+    if (numero % 2 === 0) {
+      alert("El número ingresado es par.");
+    } else {
+      alert("El número ingresado es impar.");
+    }
+
+    //Ejercicio 2
+    //Crear un programa que determine si un numero introducido en un Prompt es divisible
+    //por 5 o no, mostrar el resultado con console.log
+
+    let numero1 = prompt("Ingrese un número:");
+    numero1 = parseInt(numero1);
+    if (numero1 % 5 === 0) {
+      console.log("El número ingresado es divisible por 5.");
+    } else {
+      console.log("El número ingresado no es divisible por 5.");
+    }
+
+    //Ejercicio 3
+    //Crear un programa que determine si un numero introducido en un Prompt es
+    //divisible por 11 y 5 o no, mostrar el resultado con console.log
+
+    let numero3 = prompt("Ingrese un número:");
+    numero3 = parseInt(numero3);
+    if (numero3 % 11 === 0 && numero3 % 5 === 0) {
+      console.log("El número ingresado es divisible por 11 y 5.");
+    } else {
+      console.log("El número ingresado no es divisible por 11 y 5.");
+    }
+
+    //Ejercicio 4
+    //Crear un programa que le pida al usuario dos numeros en un Prompt y
+    //luego muestre en un alerta el numero mayor.
+
+    let numero1Ej4 = prompt("Ingrese el primer número:");
+    let numero2Ej4 = prompt("Ingrese el segundo número:");
+    numero1Ej4 = parseFloat(numero1Ej4);
+    numero2Ej4 = parseFloat(numero2Ej4);
+
+    let numeroMayor;
+    if (numero1Ej4 > numero2Ej4) {
+      numeroMayor = numero1Ej4;
+    } else if (numero2Ej4 > numero1Ej4) {
+      numeroMayor = numero2Ej4;
+    } else {
+      alert("Ambos números son iguales.");
+    }
+    alert("El número mayor es: " + numeroMayor);
+
+    //Ejercicio 5
+    // Crear un programa que le pida al usuario primero un numeros al usuario a través de un
+    //prompt y luego un segundo numero para luego mostrar en un alerta el numero mayor, esta
+    //vez realizar el ejercicio ocupando un if ternario.
+
+    let numero1Ej5 = prompt("Ingrese el primer número:");
+    let numero2Ej5 = prompt("Ingrese el segundo número:");
+    numero1Ej5 = parseFloat(numero1Ej5);
+    numero2Ej5 = parseFloat(numero2Ej5);
+    let numeroMayorEj5 = numero1Ej5 > numero2Ej5 ? numero1Ej5 : numero2Ej5;
+    alert("El número mayor es: " + numeroMayorEj5);
+
+    //Ejerccio 6
+    //Crear un programa que determine si un string introducido por un usuario
+    //empieza con un numero o con una letra.
+
+    let texto = prompt("Ingrese un texto:");
+    let primerCaracter = texto.charAt(0);
+    let esNumero = !isNaN(parseInt(primerCaracter));
+    let esLetra = /^[a-zA-Z]+$/.test(primerCaracter);
+    if (esNumero) {
+      alert("El texto ingresado empieza con un número.");
+    } else if (esLetra) {
+      alert("El texto ingresado empieza con una letra.");
+    } else {
+      alert("El texto ingresado no empieza ni con número ni con letra.");
+    }
+
+    //Ejercicio 7
+    //Crear un programa donde se introduzcan los tres angulos internos de un triangulo y
+    //se determine si el triangulo es valido o no.
+
+    let angulo1 = parseInt(
+      prompt("Ingrese el primer ángulo interno del triángulo:")
+    );
+    let angulo2 = parseInt(
+      prompt("Ingrese el segundo ángulo interno del triángulo:")
+    );
+    let angulo3 = parseInt(
+      prompt("Ingrese el tercer ángulo interno del triángulo:")
+    );
+    let sumaAngulos = angulo1 + angulo2 + angulo3;
+    let esTrianguloValido = sumaAngulos === 180;
+
+    if (esTrianguloValido) {
+      alert("El triángulo es válido.");
+    } else {
+      alert("El triángulo no es válido.");
+    }
+
+    //Ejercicio 8
+    //Determinar si una palabra empieza con mayuscula o no.
+
+    let palabra = prompt("Ingrese una palabra:");
+    let primerCaracterEj8 = palabra.charAt(0);
+    let esMayuscula = /^[A-Z]+$/.test(primerCaracterEj8);
+    if (esMayuscula) {
+      alert("La palabra empieza con mayúscula.");
+    } else {
+      alert("La palabra no empieza con mayúscula.");
+    }
+
+    //Ejercicio 9
+    //Determinar si un año dado es bisiesto.
+
+    let anio = parseInt(prompt("Ingrese un año:"));
+    let esBisiesto = (anio % 4 === 0 && anio % 100 !== 0) || anio % 400 === 0;
+    if (esBisiesto) {
+      alert("El año ingresado es bisiesto.");
+    } else {
+      alert("El año ingresado no es bisiesto.");
+    }
+
+    //Ejercicio 10
+    //Escribir un programa JavaScript en el que el programa escoge al azar un entero entre 1 y 10, luego se le
+    //pedira al usuario que intruzca un numero en un prompt para intentar adivinarlo. Si la entrada del usuario
+    //coincide con el numero de conjetura, el programa mostrará un mensaje de "buen trabajo", de lo contrario
+    //mostrará un mensaje de "No corresponde".
+
+    var numeroConjetura = Math.floor(Math.random() * 10) + 1;
+    var numeroUsuario = parseInt(
+      prompt("Intente adivinar el número (entre 1 y 10):")
+    );
+    if (numeroUsuario === numeroConjetura) {
+      alert("¡Buen trabajo! Adivinaste el número.");
+    } else {
+      alert("No corresponde. El número correcto era " + numeroConjetura + ".");
+    }
+
+    //Ejercicio 11
+    //El siguiente codigo tiene un error que se produce en algunos casos especiales, descubrirlo y arreglarlo:
+
+    // acá la correccion
+
+    if (edad < 13) {
+      console.log("Es niño");
+    } else if (edad < 18 && edad > 13) {
+      console.log("Es adolecente");
+    } else {
+      console.log("Es adulto");
+    }
+
+    // Ejercicio 12
+    //Negar las siguientes expresiones de forma de mantener la tabla de verdad, crear el programa que
+    //muestre el valor de la expresión a medida que se cambia los valores de a y b. !a && !b, !a || !b
+
+    function mostrarValores(a, b) {
+      let expresion1 = !a && !b;
+      let expresion2 = !a || !b;
+
+      console.log("!a && !b: " + expresion1);
+      console.log("!a || !b: " + expresion2);
+    }
+
+    let a, b;
+    a = true;
+    b = true;
+    mostrarValores(a, b);
+
+    a = true;
+    b = false;
+    mostrarValores(a, b);
+
+    a = false;
+    b = true;
+    mostrarValores(a, b);
+
+    a = false;
+    b = false;
+    mostrarValores(a, b);
+  </script>
+</html>
