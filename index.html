@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Ejercicio 1
+    //Escribir un programa que muestre un prompt donde el usuario ingresa un número,
+    //luego muestra otro prompt pidiendo otro numero, finalmente el programa muestra
+    //una alerta con el resultado de la suma.
+
+    let numero1 = prompt("Ingrese el primer número:");
+    let numero2 = prompt("Ingrese el segundo número:");
+
+    numero1 = parseFloat(numero1);
+    numero2 = parseFloat(numero2);
+    let suma = numero1 + numero2;
+
+    alert("El resultado de la suma es: " + suma);
+
+
+    //Ejercicio 2
+    //Crear un programa donde el usuario ingrese en un prompt la temperatura en Celsius 
+    //y el programa muestre en una alerta la temperatura en Fahrenheit.
+
+    let temperaturaCelsius = prompt("Ingrese la temperatura en Celsius:");
+    let temperaturaFahrenheit = (temperaturaCelsius * 9/5) + 32;
+    alert("La temperatura en Fahrenheit es: " + temperaturaFahrenheit.toFixed(2));
+
+
+    //Ejercicio 3
+    //Pedir un número a un usuario a través de un prompt y luego dividirlo por 10, 
+    //ejemplo: 5 / 10 igual 0.5
+
+    let numero = prompt("Ingrese un número:");
+    numero = parseFloat(numero);
+    var resultado = numero / 10;
+    alert("El resultado de la división es: " + resultado);
+
+
+  </script>
+</html>
