@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Ejercicio 1
+    //Mostrar todos los números de 1 a n aumentando de 1 en 1 donde n lo ingresa el usuario
+    //en un prompt.
+
+    function mostrarNumerosDe1aN() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      console.log("Los números del 1 al " + n + " son:");
+      for (let i = 1; i <= n; i++) {
+        console.log(i);
+      }
+    }
+    mostrarNumerosDe1aN();
+
+    //Ejercicio 2
+    //Mostrar todos los números de 1 a N aumentando de 2 en 2 donde n lo ingresa el usuario
+    //en un prompt.
+
+    function mostrarNumerosDe1A2N() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      console.log("Los números del 1 al " + n + " aumentando de 2 en 2 son:");
+      for (let i = 1; i <= n; i += 2) {
+        console.log(i);
+      }
+    }
+    mostrarNumerosDe1A2N();
+
+    //Ejercicio 3
+    //Mostrar todos los números de N a 1 disminuyendo de 1 en 1 donde n lo
+    //ingresa el usuario en un prompt
+
+    function mostrarNumerosDeN1() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      console.log("Los números del " + n + " al 1 son:");
+      for (let i = n; i >= 1; i--) {
+        console.log(i);
+      }
+    }
+    mostrarNumerosDeN1();
+
+    //Ejercicio 4
+    //Escribir utilizando console.log la tabla del 9 hasta 9x10.
+
+    function mostrarTablaDel9() {
+      console.log("Tabla del 9:");
+      for (let i = 1; i <= 10; i++) {
+        let resultado = 9 * i;
+        console.log("9 x " + i + " = " + resultado);
+      }
+    }
+    mostrarTablaDel9();
+
+    //Ejercicio 5
+    //Pedir al usuario que ingrese un número en un prompt, hacer la suma de todos los dígitos,
+    //validar que el número ingresado no contenga letras.
+
+    function sumaDigitos() {
+      let numero = prompt("Ingrese un número:");
+      while (!/^\d+$/.test(numero)) {
+        numero = prompt("Por favor, ingrese un número válido:");
+      }
+      let suma = 0;
+      for (let i = 0; i < numero.length; i++) {
+        suma += parseInt(numero.charAt(i));
+      }
+      console.log(
+        "La suma de los dígitos del número " + numero + " es: " + suma
+      );
+    }
+    sumaDigitos();
+
+    //Ejercicio 6
+    // Realizar la suma de todos los números pares entre N y M donde
+    //N y M los ingresa un usuario.
+
+    function sumaNumerosPares() {
+      let n = parseInt(prompt("Ingrese el valor de N:"));
+      let m = parseInt(prompt("Ingrese el valor de M:"));
+
+      if (n > m) {
+        let temp = n;
+        n = m;
+        m = temp;
+      }
+
+      let suma = 0;
+
+      for (let i = n; i <= m; i++) {
+        if (i % 2 === 0) {
+          suma += i;
+        }
+      }
+
+      console.log(
+        "La suma de los números pares entre " + n + " y " + m + " es: " + suma
+      );
+    }
+    sumaNumerosPares();
+
+    //Ejercicio 7
+    //Realizar la sumatoria de los primeros N números, donde N es
+    //ingresado por el usuario.
+
+    function sumatoriaPrimerosN() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      let sumatoria = 0;
+      for (let i = 1; i <= n; i++) {
+        sumatoria += i;
+      }
+      console.log(
+        "La sumatoria de los primeros " + n + " números es: " + sumatoria
+      );
+    }
+    sumatoriaPrimerosN();
+
+    //Ejercicio 8
+    //Realizar la sumatoria de los primeros N números, donde N es
+    //ingresado por el usuario.
+
+    function sumatoriaPrimerosN() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      let sumatoria = 0;
+
+      for (let i = 1; i <= n; i++) {
+        sumatoria += i;
+      }
+
+      console.log(
+        "La sumatoria de los primeros " + n + " números es: " + sumatoria
+      );
+    }
+    sumatoriaPrimerosN();
+
+    //Ejercicio 9
+    // Realizar el factorial de los primeros N números.
+    function factorialPrimerosN() {
+      let n = parseInt(prompt("Ingrese un número:"));
+      console.log("Los factoriales de los primeros " + n + " números son:");
+
+      for (let i = 1; i <= n; i++) {
+        let factorial = 1;
+
+        for (let j = 1; j <= i; j++) {
+          factorial *= j;
+        }
+
+        console.log(i + "! = " + factorial);
+      }
+    }
+    factorialPrimerosN();
+
+    //Ejercicio 10
+    //Crear una función que reciba un valor cualquiera y lo muestre ocupando
+    //console.log(), llamar a la función pasando el valor 5
+
+    function mostrarValor(valor) {
+      console.log(valor);
+    }
+    mostrarValor(5);
+
+    //Ejercicio 11
+    //La siguiente función devuelve undefined en lugar de la multiplicación, se pide arreglarla
+    //function multiply(a, b){
+    //   a * b
+    //  }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    //Ejercicio 12
+    //Crear una función que reciba dos valores y devuelva la suma de ellos.
+
+    function sumar(a, b) {
+      let suma = a + b;
+      return suma;
+    }
+
+    //Ejercicio 13
+    //Crear una función que reciba un número entero y
+    //muestre un error si el tipo de dato pasado es de otro tipo.
+    function validarEntero(numero) {
+      if (Number(numero) === parseInt(numero)) {
+        console.log("El número es un entero válido:", numero);
+      } else {
+        console.error("Error: Se esperaba un número entero.");
+      }
+    }
+
+    //Ejercicio 14
+    //Crear una función autoejecutable que muestre "muuu" en pantalla.
+
+    (function () {
+      console.log("muuu");
+    })();
+
+    
+  </script>
+</html>
