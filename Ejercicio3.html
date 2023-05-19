@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Ejercicio 1
+    //Mostrar todos los numeros de 1 a n aumentando de 1 en 1 donde n lo ingresa el usuario en un prompt
+    let n = prompt("Ingresa un número:");
+    n = parseInt(n);
+    while (1 <= n) {
+      console.log(n);
+      n++;
+    }
+
+    //Ejercicio 2
+    //Mostrar todos los numeros de 1 a n aumentando de 2 en 2 donde n lo ingresa el usuario en un prompt
+
+    let nEj2 = prompt("Ingresa un número:");
+    nEj2 = parseInt(nEj2);
+    while (1 <= nEj2) {
+      console.log(nEj2);
+      nEj2 = nEj2 + 2;
+    }
+
+    //Ejercicio 3
+    //Mostrar todos los numeros de 1 a n descendiendo de 1 en 1 donde n lo ingresa el usuario en un prompt
+
+    let nEj3 = prompt("Ingresa un número:");
+    nEj3 = parseInt(nEj3);
+    while (1 <= nEj3) {
+      console.log(nEj3);
+      nEj3--;
+    }
+
+    //Ejercicio 4
+    //Tabla del 9, en un console log
+
+    let numero = 9;
+    let multiplicador = 1;
+
+    while (multiplicador <= 10) {
+      let resultado = numero * multiplicador;
+      console.log(numero + " x " + multiplicador + " = " + resultado);
+      multiplicador++;
+    }
+
+    //Ejercicio 5
+    //Pedir al usuario que ingrese un numero en un prompt, hacer la suma de todos los digitos,
+    //validar que el numero ingresado no contenga letras
+    let input = prompt("Ingrese un número:");
+    let number = parseInt(input);
+    let sum = 0;
+    while (isNaN(number)) {
+      input = prompt("Por favor, ingrese un número válido:");
+      number = parseInt(input);
+    }
+    while (number > 0) {
+      sum += number % 10;
+      number = Math.floor(number / 10);
+    }
+
+    console.log("La suma de los dígitos es: " + sum);
+
+    //Ejercicio 6
+    //Realizar la suma de todos los numeros pares entre N y M donde N y M los ingresa un usuario
+    let nEj6 = parseInt(prompt("Ingrese el valor de N:"));
+    let mEj6 = parseInt(prompt("Ingrese el valor de M:"));
+    let sumEj6 = 0;
+    let currentNumber = n;
+    if (nEj6 > mEj6) {
+      let temp = nEj6;
+      nEj6 = mEj6;
+      mEj6 = temp;
+    }
+    while (currentNumber <= mEj6) {
+      if (currentNumber % 2 === 0) {
+        sumEj6 += currentNumber;
+      }
+      currentNumber++;
+    }
+
+    console.log(
+      "La suma de los números pares entre " +
+        nEj6 +
+        " y " +
+        mEj6 +
+        " es: " +
+        sumEj6
+    );
+
+    //Ejercicio 7
+    //Realizar la sumatoria de los primeros N numeros, donde N es ingresado por el usuario.
+
+    let nEj7 = parseInt(prompt("Ingrese el valor de N:"));
+    let sumEj7 = 0;
+    let numInicial = 1;
+    while (numInicial <= n) {
+      sum += numInicial;
+      numInicial++;
+    }
+
+    console.log(
+      "La sumatoria de los primeros " + nEj7 + " números es: " + sumEj7
+    );
+
+    //Ejercicio 8
+    //Realizar el factorial de los primeros N numeros
+
+    let nEj8 = parseInt(prompt("Ingrese el valor de N:"));
+    for (let i = 1; i <= nEj8; i++) {
+      let factorial = 1;
+      for (let j = 1; j <= i; j++) {
+        factorial *= j;
+      }
+      console.log("El factorial de " + i + " es: " + factorial);
+    }
+
+    //Ejercicio 9
+    //Encontrar todos los divisores de un numero
+
+    let numeroEj9 = parseInt(prompt("Ingrese un número:"));
+    for (let i = 1; i <= numeroEj9; i++) {
+      if (numeroEj9 % i === 0) {
+        console.log(i);
+      }
+    }
+
+    //Ejercicio 10
+    //Determinar si un numero ingresado por el usuario en un loop es primo o no,
+    //validar que el numero ingresado sea mayor o igual a dos.
+
+    let numeroEj10 = parseInt(prompt("Ingrese un número mayor o igual a dos:"));
+    while (numeroEj10 < 2) {
+      numeroEj10 = parseInt(
+        prompt("Por favor, ingrese un número mayor o igual a dos:")
+      );
+    }
+
+    let esPrimo = true;
+
+    for (let i = 2; i <= numeroEj10; i++) {
+      if (numeroEj10 % i === 0) {
+        esPrimo = false;
+      }
+    }
+
+    if (esPrimo) {
+      console.log(numeroEj10 + " es un número primo.");
+    } else {
+      console.log(numeroEj10 + " no es un número primo.");
+    }
+
+    //Ejercicio 11
+    //Crear un programa que determine si un numero es perfecto o no, (se dice que un numero
+    //es perfecto si el numero es igual a sus divisores, ejemplos 6 = 1 + 2 + 3)
+    let numeroEj11 = parseInt(prompt("Ingrese un número:"));
+
+    let sumaDivisores = 0;
+
+    for (let i = 1; i < numeroEj11; i++) {
+      if (numeroEj11 % i === 0) {
+        sumaDivisores += i;
+      }
+    }
+
+    if (sumaDivisores === numeroEj11) {
+      console.log(numeroEj11 + " es un número perfecto.");
+    } else {
+      console.log(numeroEj11 + " no es un número perfecto.");
+    }
+
+    //Ejercicio 12
+    let nEj12 = parseInt(
+      prompt("Ingrese la cantidad de números primos que desea generar:")
+    );
+
+    let numerosPrimos = [];
+    let numeroEj12 = 2;
+
+    while (numerosPrimos.length < n) {
+      let esPrimo = true;
+
+      for (let i = 2; i <= Math.sqrt(numeroEj12); i++) {
+        if (numeroEj12 % i === 0) {
+          esPrimo = false;
+        }
+      }
+
+      if (esPrimo) {
+        numeroEj12sPrimos.push(numeroEj12);
+      }
+
+      numeroEj12++;
+    }
+
+    console.log("Los primeros " + n + " números primos son:");
+    console.log(numerosPrimos);
+
+    //Ejercicio 13
+    //Generar los primeros N numeros perfectos.
+
+    let nEj13= parseInt(
+      prompt("Ingrese la cantidad de números perfectos que desea generar:")
+    );
+    let numerosPerfectosEj13 = [];
+    let numeroEj13 = 2;
+
+    while (numerosPerfectosEj13.length < n) {
+      let sumaDivisores = 0;
+
+      for (let i = 1; i < numeroEj13; i++) {
+        if (numeroEj13 % i === 0) {
+          sumaDivisores += i;
+        }
+      }
+
+      if (sumaDivisores === Ej13) {
+        numerosPerfectosEj13.push(numeroEj13);
+      }
+
+      numeroEj13++;
+    }
+
+    console.log("Los primeros " + n + " números perfectos son:");
+    console.log(numerosPerfectosEj13);
+  </script>
+</html>
