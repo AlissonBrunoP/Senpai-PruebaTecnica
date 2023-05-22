@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Ejercicio 1
+    function copiarArreglo(arreglo) {
+      let copia = arreglo.slice();
+      return copia;
+    }
+
+    //Ejercicio 2
+    function calcularPromedio(arreglo) {
+      if (arreglo.length === 0) {
+        return 0;
+      }
+
+      let suma = arreglo.reduce(function (acumulador, elemento) {
+        return acumulador + elemento;
+      }, 0);
+
+      let promedio = suma / arreglo.length;
+      return promedio;
+    }
+
+    //Ejercicio 3
+    function calcularPromedioRango(arreglo, inicio, fin) {
+      if (inicio < 0 || fin >= arreglo.length || inicio > fin) {
+        return 0;
+      }
+
+      let valoresRango = arreglo.slice(inicio, fin + 1);
+      let suma = valoresRango.reduce(function (acumulador, elemento) {
+        return acumulador + elemento;
+      }, 0);
+
+      let promedio = suma / valoresRango.length;
+      return promedio;
+    }
+
+    //Ejercicio 4
+    // Objeto literal persona
+    let persona1 = {
+      nombre: "Juan",
+      edad: 25,
+      esMayorEdad: function () {
+        return this.edad >= 18;
+      },
+    };
+
+    // Función constructora Persona
+    function Persona(nombre, edad) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.esMayorEdad = function () {
+        return this.edad >= 18;
+      };
+    }
+
+    // Array de personas
+    let personas = [
+      new Persona("Ana", 20),
+      new Persona("Pedro", 30),
+      new Persona("María", 17),
+    ];
+
+    // Función para calcular la edad promedio
+    function calcularEdadPromedio(arrPersonas) {
+      let sumaEdades = arrPersonas.reduce(function (acumulador, persona) {
+        return acumulador + persona.edad;
+      }, 0);
+
+      let promedio = sumaEdades / arrPersonas.length;
+      return promedio;
+    }
+
+    //Ejercicio 4
+    function Telefono(numero) {
+      this.numero = numero;
+      this.numeroLlamadas = 0;
+
+      this.llamar = function () {
+        this.numeroLlamadas++;
+        console.log("Llamando al número:", this.numero);
+      };
+    }
+
+    //Ejercicio 5
+    function Punto(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    function Recta(punto1, punto2) {
+      this.punto1 = punto1;
+      this.punto2 = punto2;
+    }
+
+    //Ejercicio 6
+    <p id="demo"> :( </p>;
+    let pElement = document.getElementById("demo");
+    pElement.innerHTML = "😊";
+
+    //Ejercicio 7
+    <p id="clock"></p>;
+
+    function obtenerHoraActual() {
+      let fecha = new Date();
+      let horas = fecha.getHours();
+      let minutos = fecha.getMinutes();
+      let segundos = fecha.getSeconds();
+      if (minutos < 10) {
+        minutos = "0" + minutos;
+      }
+      if (segundos < 10) {
+        segundos = "0" + segundos;
+      }
+
+      let horaActual = horas + ":" + minutos + ":" + segundos;
+      return horaActual;
+    }
+    function actualizarReloj() {
+      let elementoReloj = document.getElementById("reloj");
+      var horaActual = obtenerHoraActual();
+      elementoReloj.innerHTML = horaActual;
+    }
+    setInterval(actualizarReloj, 1000);
+  </script>
+</html>
