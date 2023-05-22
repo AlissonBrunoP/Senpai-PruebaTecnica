@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //Ejercicio 1
+    let array = [1, 2, 3, 4, 5, 6];
+    let newArray = [];
+    let sum = 0;
+
+    let iEj1 = 0;
+    while (iEj1 < array.length) {
+      console.log(array[iEj1]);
+      iEj1++;
+    }
+
+    for (let j = 0; j < array.length; j++) {
+      console.log(array[j]);
+    }
+
+    array.forEach(function (element) {
+      console.log(element);
+    });
+
+    for (let k = 0; k < array.length; k++) {
+      console.log(array[k] + 1);
+    }
+
+    for (let l = 0; l < array.length; l++) {
+      newArray.push(array[l] + 1);
+    }
+    console.log(newArray);
+
+    for (let m = 0; m < array.length; m++) {
+      sum += array[m];
+    }
+    let average = sum / array.length;
+    console.log(average);
+
+    //Ejercicio 2
+    let arrayEj2 = [];
+
+    for (let iEj2 = 0; iEj2 < 20; iEj2++) {
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      arrayEj2.push(randomNumber);
+    }
+    console.log(arrayEj2);
+
+    //Ejercicio 3
+    let arrayEj3 = [];
+    let n = parseInt(
+      prompt("Ingrese la cantidad de números aleatorios que desea generar:")
+    );
+
+    for (let iEj3 = 0; iEj3 < n; iEj3++) {
+      let randomNumber = Math.floor(Math.random() * 100) + 1;
+      arrayEj3.push(randomNumber);
+    }
+
+    console.log(arrayEj3);
+
+    //Ejercicio 4
+    let colores = ["azul", "amarillo", "rojo", "verde", "café", "rosa"];
+    let colorUsuario = prompt("Ingrese un color:");
+
+    if (colores.includes(colorUsuario)) {
+      console.log("El color", colorUsuario, "se encuentra en el array.");
+    } else {
+      console.log("El color", colorUsuario, "no se encuentra en el array.");
+    }
+  </script>
+</html>
