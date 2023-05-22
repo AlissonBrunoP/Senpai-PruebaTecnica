@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Ejercicio 1
+      let array1 = ["azul", "amarillo", "rojo", "verde", "café"];
+      let array2 = ["amarillo", "verde", "naranja", "azul", "rosa"];
+
+      let intersectionArray = array1.filter(function (element) {
+        return array2.includes(element);
+      });
+
+      console.log(intersectionArray);
+
+      //Ejercicio 2
+      let array1E1 = ["azul", "amarillo", "rojo", "verde", "café"];
+      let array2E1 = ["amarillo", "verde", "naranja", "azul", "rosa"];
+      let unionArray = [];
+      for (let i = 0; i < array1E1.length; i++) {
+        unionArray.push(array1E1[i]);
+      }
+      for (let j = 0; j < array2E1.length; j++) {
+        unionArray.push(array2E1[j]);
+      }
+      console.log(unionArray);
+
+      //Ejercicio 3
+      let conjunto1 = prompt(
+        "Ingrese el primer conjunto de números separados por coma:"
+      );
+      let conjunto2 = prompt(
+        "Ingrese el segundo conjunto de números separados por coma:"
+      );
+
+      let array1Ej3 = conjunto1.split(",");
+      let array2Ej3 = conjunto2.split(",");
+
+      if (array1Ej3.length === array2Ej3.length) {
+        console.log("Ambos conjuntos tienen la misma cantidad de números.");
+      } else {
+        console.log("Los conjuntos tienen una cantidad diferente de números.");
+      }
+
+      //Ejercicio 4
+      let conjunto1Ej4 = prompt(
+        "Ingrese el primer conjunto de números separados por coma:"
+      );
+      let conjunto2Ej4 = prompt(
+        "Ingrese el segundo conjunto de números separados por coma:"
+      );
+      let array1Ej4 = conjunto1Ej4.split(",");
+      let array2Ej4 = conjunto2Ej4.split(",");
+      if (array1Ej4.length === array2Ej4.length) {
+        let resultado = [];
+        for (let i = 0; i < array1Ej4.length; i++) {
+          let suma = parseInt(array1Ej4[i]) + parseInt(array2Ej4[i]);
+          resultado.push(suma);
+        }
+        console.log("El resultado de la suma es:", resultado);
+      } else {
+        console.log("Los conjuntos tienen una cantidad diferente de números.");
+      }
+
+      //Ejercicio 5
+      function obtenerNumerosPares(arreglo) {
+        let numerosPares = arreglo.reduce(function (resultado, numero) {
+          if (numero % 2 === 0) {
+            resultado.push(numero);
+          }
+          return resultado;
+        }, []);
+        return numerosPares;
+      }
+
+      //Ejercicio 6
+      function obtenerPalabrasConVocal(arreglo) {
+        let palabrasConVocal = arreglo.filter(function (palabra) {
+          let primeraLetra = palabra.charAt(0).toLowerCase();
+          return ["a", "e", "i", "o", "u"].includes(primeraLetra);
+        });
+        return palabrasConVocal;
+      }
+
+      //Ejercicio 7
+
+      function intercambiarPosiciones(arreglo, indice1, indice2) {
+        let elementoTemporal = arreglo[indice1];
+        arreglo[indice1] = arreglo[indice2];
+        arreglo[indice2] = elementoTemporal;
+      }
+      let arr = [1, 2, 3];
+      let indice1 = 0;
+      let indice2 = 1;
+      let elementoTemporal = arr[indice1];
+      arr[indice1] = arr[indice2];
+      arr[indice2] = elementoTemporal;
+      console.log(arr);
+      //Ejercicio 8
+      function swap(arreglo, indice1, indice2) {
+        let nuevoArreglo = arreglo.slice();
+        let temp = nuevoArreglo[indice1];
+        nuevoArreglo[indice1] = nuevoArreglo[indice2];
+        nuevoArreglo[indice2] = temp;
+        return nuevoArreglo;
+      }
+      let arr = [1, 2, 3];
+      let new_arr = swap(arr, 0, 1);
+      console.log(arr);
+      console.log(new_arr);
+
+      //ejercicio 9
+      function ordenarArreglo(arreglo) {
+        let longitud = arreglo.length;
+        let ordenado = false;
+        while (!ordenado) {
+          ordenado = true;
+          for (let i = 0; i < longitud - 1; i++) {
+            if (arreglo[i] > arreglo[i + 1]) {
+              let temp = arreglo[i];
+              arreglo[i] = arreglo[i + 1];
+              arreglo[i + 1] = temp;
+              ordenado = false;
+            }
+          }
+          longitud--;
+        }
+        return arreglo;
+      }
+      var arr = [5, 3, 8, 2, 1];
+      var nuevoArr = ordenarArreglo(arr);
+      console.log(nuevoArr);
+
+      //Ejercicio 10
+      function ordenarDescendente(arreglo) {
+        let nuevoArreglo = arreglo.slice();
+        nuevoArreglo.sort(function (a, b) {
+          return b - a;
+        });
+        return nuevoArreglo;
+      }
+      let arr = [5, 3, 8, 2, 1];
+      let nuevoArr = ordenarDescendente(arr);
+      console.log(nuevoArr);
+
+      //Ejercicio 11
+      function aplanar(arreglo) {
+        let nuevoArreglo = [];
+        for (let i = 0; i < arreglo.length; i++) {
+          if (Array.isArray(arreglo[i])) {
+            nuevoArreglo = nuevoArreglo.concat(aplanar(arreglo[i]));
+          } else {
+            nuevoArreglo.push(arreglo[i]);
+          }
+        }
+        return nuevoArreglo;
+      }
+      console.log(aplanar(arr));
+
+      //Ejercicio 12
+      function split(arreglo) {
+        let grupo1 = [];
+        let grupo2 = [];
+        let mitad = Math.ceil(arreglo.length / 2);
+        for (let i = 0; i < arreglo.length; i++) {
+          if (i < mitad) {
+            grupo1.push(arreglo[i]);
+          } else {
+            grupo2.push(arreglo[i]);
+          }
+        }
+        return [grupo1, grupo2];
+      }
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+      console.log(split(arr));
+
+      //Ejercicio 13
+      function mostrarMatriz(matriz) {
+        for (let i = 0; i < matriz.length; i++) {
+          let fila = matriz[i];
+          let filaString = fila.join(" ");
+
+          console.log(filaString);
+        }
+      }
+      mostrarMatriz(matriz);
+
+      //Ejercicio 14
+      function sumarMatrices(matriz1, matriz2) {
+        let resultado = [];
+        for (let i = 0; i < matriz1.length; i++) {
+          let fila = [];
+          for (let j = 0; j < matriz1[i].length; j++) {
+            let suma = matriz1[i][j] + matriz2[i][j];
+            fila.push(suma);
+          }
+          resultado.push(fila);
+        }
+        return resultado;
+      }
+   
+
+      //Ejercicio 15
+      function contarElementos(matriz) {
+        var contador = 0;
+
+        for (var i = 0; i < matriz.length; i++) {
+          contador += matriz[i].length;
+        }
+
+        return contador;
+      }
+
+      // Ejercicio 16
+      function multiplicarMatrizPorEscalar(matriz, escalar) {
+        var resultado = [];
+
+        for (var i = 0; i < matriz.length; i++) {
+          var fila = [];
+          for (var j = 0; j < matriz[i].length; j++) {
+            fila.push(matriz[i][j] * escalar);
+          }
+          resultado.push(fila);
+        }
+
+        return resultado;
+      }
+
+      // Ejercicio 17
+      function encontrarNumeroMayor(matriz) {
+        var mayor = matriz[0][0];
+
+        for (var i = 0; i < matriz.length; i++) {
+          for (var j = 0; j < matriz[i].length; j++) {
+            if (matriz[i][j] > mayor) {
+              mayor = matriz[i][j];
+            }
+          }
+        }
+
+        return mayor;
+      }
+
+      // Ejercicio 18
+      function buscarNumeroEnMatriz(matriz, numero) {
+        for (var i = 0; i < matriz.length; i++) {
+          for (var j = 0; j < matriz[i].length; j++) {
+            if (matriz[i][j] === numero) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      }
+
+      //Ejercicio 19
+      function sumaDiagonalMatriz(matriz) {
+        var suma = 0;
+
+        for (var i = 0; i < matriz.length; i++) {
+          suma += matriz[i][i];
+        }
+
+        return suma;
+      }
+
+
+    </script>
+  </body>
+</html>
